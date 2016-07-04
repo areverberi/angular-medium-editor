@@ -53,6 +53,10 @@ angular.module('angular-medium-editor', [])
         scope.$on('$destroy', function() {
           ngModel.editor.destroy();
         });
+
+        ngModel.$viewChangeListeners.push(function() {
+          scope.$eval(iAttrs.ngChange);
+        });
       }
     };
 
